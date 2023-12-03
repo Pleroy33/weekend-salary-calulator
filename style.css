@@ -7,3 +7,12 @@ table {
     border-collapse: collapse;
     height: 2.15em;
   }
+
+  .overBudget {
+    background-color: red;
+  }
+  
+  .underBudget {
+    background-color: green;
+
+  }

@@ -21,7 +21,7 @@
       <input placeholder="Title" type="text" id="titleInput">
       <input placeholder="Annual Salary" type="text" id="annualSalaryInput">
 
-      <button id="submitButton" onclick="dominate()">Submit</button>
+      <button id="submitButton" onclick="dominate(),overSpent()">Submit</button>
 
     </form>
     <section>
@@ -47,8 +47,8 @@
     </section>
 
   </main>
-  <footer>
-    <p>Total Monthly</p>
+  <footer id="bottom">
+    <p>Total Monthly:<span id="total">0</span></p>
   </footer>
 </body>
 
