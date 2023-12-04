@@ -11,7 +11,13 @@ let yearlyTotal = 0
 let monthlyTotal = 0
 let rowNumber = 0    //rownumber on table
 let sal = 0  //salary id
-function dominate() {
+function dominate() {/**function for onclick event 
+that will take html input, set them to a variable, get the value inside of the input,
+and put all this to an row output.  Next is calculations to get the monthly total salary
+added up from the annual salary input from each individual,
+and then at the bottom is code to clear the form inputs on submit.
+
+*/
     event.preventDefault();
 
     console.log("We're totes positives");
@@ -53,8 +59,8 @@ function dominate() {
 
 
     const salaryTable = document.querySelector("#tableData tbody");
-    salaryTable.innerHTML += "<tr id = \"" + rowNumber + "\"><td>" + firstNameInput.value + "</td><td>" + lastNameInput.value + "</td><td>" + idInput.value + "</td><td>" + titleInput.value + "</td><td id =\"s"+rowNumber+"\">" + annualSalaryInput.value + "</td><td><button type='button' onclick = 'deleteEmployee( " + rowNumber + ")'>Delete Employee</button>" + "</td></tr>"
- 
+    salaryTable.innerHTML += "<tr id = \"" + rowNumber + "\"><td>" + firstNameInput.value + "</td><td>" + lastNameInput.value + "</td><td>" + idInput.value + "</td><td>" + titleInput.value + "</td><td id =\"s" + rowNumber + "\">" + annualSalaryInput.value + "</td><td><button type='button' onclick = 'deleteEmployee( " + rowNumber + ")'>Delete Employee</button>" + "</td></tr>"
+
 
 
     rowNumber++;
@@ -65,9 +71,9 @@ function dominate() {
     console.log(yearlyTotal);
     monthlyTotal = yearlyTotal / 12;
     console.log(monthlyTotal);
-    total.innerHTML = monthlyTotal;
+    total.innerHTML = monthlyTotal.toFixed(2);
 
-    document.getElementById('firstNameInput').value= '';
+    document.getElementById('firstNameInput').value = '';
     document.getElementById('lastNameInput').value = '';
     document.getElementById('idInput').value = '';
     document.getElementById('titleInput').value = '';
@@ -81,7 +87,8 @@ function dominate() {
 
 
 
-function overSpent() {
+function overSpent() {/**This is a function that turns the footer elemen
+red when the monthly total goes over 20,000 dollars */
     console.log('overSpent is Running');
 
     const monthlyTotal2 = +document.getElementById("total").textContent
@@ -96,28 +103,35 @@ function overSpent() {
 
 
 
-function deleteEmployee(id) {
+function deleteEmployee(id) {/** This is a function that deletes an employee when
+called. The onclick event for this is in the tr output of the dominate() function */
     console.log("This employee has been moved to the basement!:", id)
     let row = document.getElementById(id)
     changeMonthlyTotal(id);
     console.log(row)
     row.remove()
 
-    
-    
+
+
 }
 
-function changeMonthlyTotal(x){
-    let sdata = "s"+x
+function changeMonthlyTotal(x) {/** This was my attempt to adjust the 
+montly total when I deleted an employee. It works except for the 
+decimals don't allow for correct math.   */
+    let sdata = "s" + x
     console.log(sdata)
     let employeeCost = +document.getElementById(sdata).textContent
     console.log(employeeCost);
-    employeeCost= employeeCost /12;
+    employeeCost = employeeCost/12;
     console.log(employeeCost);
     console.log(+total.innerHTML)
-    total.innerHTML=+total.innerHTML-employeeCost;
+    total.innerHTML= +total.innerHTML - employeeCost;
+    
 
 }
+
+
+// Below is code I was looking at or tried using at some point
 //changeMonthlyTotal();
 
 
