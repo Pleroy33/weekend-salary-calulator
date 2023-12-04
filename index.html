@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <link rel="stylesheet" href="style.css">
-  <script defer src="client.js"></script>
+  <script defer src="script.js"></script>
   <title>Salary Calculator</title>
 </head>
 
@@ -15,15 +15,15 @@
   <main>
     <h2>Add Employee</h2>
     <form>
-      <input placeholder="First Name" type="text" id="firstNameInput">
-      <input placeholder="Last Name" type="text" id="lastNameInput">
-      <input placeholder="ID number" type="text" id="idInput">
-      <input placeholder="Title" type="text" id="titleInput">
-      <input placeholder="Annual Salary" type="text" id="annualSalaryInput">
+      <input placeholder="First Name" type="text" data-testid="firstNameInput" id="firstNameInput">
+      <input placeholder="Last Name" type="text" data-testid="lastNameInput" id="lastNameInput">
+      <input placeholder="ID number" type="text" data-testid="idInput" id="idInput">
+      <input placeholder="Title" type="text" data-testid="titleInput" id="titleInput">
+      <input placeholder="Annual Salary" type="text" data-testid="annualSalaryInput" id="annualSalaryInput">
 
-      <button id="submitButton" onclick="dominate(),overSpent()">Submit</button>
+      <button data-testid="submitButton" onclick="dominate(),overSpent()">Submit</button>
 
-    </form>
+    </form id ="myForm">
     <section>
       <h2>Employees</h2>
       <table id="tableData">

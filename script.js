@@ -4,6 +4,9 @@ onReady();
 function onReady() {
     console.log("Willhiem scream")//I'm building an App!!!
 }
+
+
+
 let yearlyTotal = 0
 let monthlyTotal = 0
 let rowNumber = 0    //rownumber on table
@@ -13,7 +16,7 @@ function dominate() {
 
     console.log("We're totes positives");
 
-    const firstNameInput = document.getElementById('firstNameInput');
+    const firstNameInput = document.getElementById("firstNameInput");
     console.log("submitFirstNameInput", firstNameInput);
     const lastNameInput = document.getElementById("lastNameInput");
     console.log("submitlastNameInput", lastNameInput);
@@ -51,6 +54,7 @@ function dominate() {
 
     const salaryTable = document.querySelector("#tableData tbody");
     salaryTable.innerHTML += "<tr id = \"" + rowNumber + "\"><td>" + firstNameInput.value + "</td><td>" + lastNameInput.value + "</td><td>" + idInput.value + "</td><td>" + titleInput.value + "</td><td id =\"s"+rowNumber+"\">" + annualSalaryInput.value + "</td><td><button type='button' onclick = 'deleteEmployee( " + rowNumber + ")'>Delete Employee</button>" + "</td></tr>"
+ 
 
 
     rowNumber++;
@@ -63,6 +67,11 @@ function dominate() {
     console.log(monthlyTotal);
     total.innerHTML = monthlyTotal;
 
+    document.getElementById('firstNameInput').value= '';
+    document.getElementById('lastNameInput').value = '';
+    document.getElementById('idInput').value = '';
+    document.getElementById('titleInput').value = '';
+    document.getElementById('annualSalaryInput').value = '';
 
 
 
@@ -78,8 +87,8 @@ function overSpent() {
     const monthlyTotal2 = +document.getElementById("total").textContent
     console.log(monthlyTotal2);
 
-    if (monthlyTotal2 >= 20000) {
-        document.getElementById("bottom").classList.add("overBudget")
+    if (monthlyTotal2 > 20000) {
+        document.getElementById("bottom").classList.add("over-budget")
     }
 
 }
